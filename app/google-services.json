@@ -1,41 +1,34 @@
 {
   "project_info": {
-    "project_number": "947062750024",
-    "project_id": "mlem-fcbba",
-    "storage_bucket": "mlem-fcbba.appspot.com"
+    "project_number": "97055172048",
+    "firebase_url": "https://ms-engage-21-954da-default-rtdb.firebaseio.com",
+    "project_id": "ms-engage-21-954da",
+    "storage_bucket": "ms-engage-21-954da.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:947062750024:android:4dc6c0086c13b0ccd5117d",
+        "mobilesdk_app_id": "1:97055172048:android:52fc913a3745d658a8c5d5",
         "android_client_info": {
           "package_name": "com.example.mlem"
         }
       },
       "oauth_client": [
         {
-          "client_id": "947062750024-q8nhefeiq83erllktklc9v0jtc1moc6q.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.mlem",
-            "certificate_hash": "50c3ac182a7eafe237dbc3e9f58711cb9d241636"
-          }
-        },
-        {
-          "client_id": "947062750024-hn30adr0cf3h22j4r8m2lb5ovh9i8uk2.apps.googleusercontent.com",
+          "client_id": "97055172048-mjifg2hlkrq50e8l2bu7rhi872f653th.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCGusmKNWJcRpv9PNcGWkuByj1IME2FY3E"
+          "current_key": "AIzaSyCt8cMfljfIfF4S28vXVCNZZE5KMEvSeG4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "947062750024-hn30adr0cf3h22j4r8m2lb5ovh9i8uk2.apps.googleusercontent.com",
+              "client_id": "97055172048-mjifg2hlkrq50e8l2bu7rhi872f653th.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

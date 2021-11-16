@@ -4,17 +4,23 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -46,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //This is subbhu's code
         // Instantiate layout variables
         avatarText = findViewById(R.id.avatarTextMain);
         addGroupBtn = findViewById(R.id.addGroup);
@@ -129,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Get a reference to our posts
-        FirebaseDatabase database = FirebaseDatabase.getInstance("https://mlem-fcbba-default-rtdb.firebaseio.com");
+        FirebaseDatabase database = FirebaseDatabase.getInstance("https://ms-engage-21-954da-default-rtdb.firebaseio.com/");
         DatabaseReference ref = database.getReference("Groups/");
 
         // Attach a listener to read the data at our posts reference
@@ -191,18 +197,32 @@ public class MainActivity extends AppCompatActivity {
     public void addGroup(String groupName) {
 
         // Write a message to the database
-        FirebaseDatabase database = FirebaseDatabase.getInstance("https://mlem-fcbba-default-rtdb.firebaseio.com");
+        FirebaseDatabase database = FirebaseDatabase.getInstance("https://ms-engage-21-954da-default-rtdb.firebaseio.com/");
         DatabaseReference myRef = database.getReference("Groups");
 
 
         //Group group = new Group(groupName, new HashMap<String,Message>());
 
-
         String gKey = myRef.push().getKey();
 
         myRef = database.getReference("Groups/" + gKey);
 
-        myRef.setValue(new Group(gKey, groupName));
+        myRef.setValue(new Group(gKey, groupName)).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Log.d("groups","task");
+            }
+        }).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Log.d("groups","created");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d("groups",e.getMessage());
+            }
+        });
 
 
     }
